@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tosyo_card_pay/components/card.dart';
+import 'package:book_pay/components/card.dart';
 
 // カード一覧ページの定義
 class CardsPage extends StatefulWidget {

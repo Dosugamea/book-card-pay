@@ -1,6 +1,6 @@
 {
-    "name": "tosyo_card_pay",
-    "short_name": "tosyo_card_pay",
+    "name": "book_pay",
+    "short_name": "book_pay",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

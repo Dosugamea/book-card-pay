@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.tosyo_card_pay">
+    package="com.example.book_pay">
    <application
-        android:label="tosyo_card_pay"
+        android:label="book_pay"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

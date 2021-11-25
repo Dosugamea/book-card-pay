@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tosyo_card_pay/pages/home.dart';
-import 'package:tosyo_card_pay/pages/cards.dart';
-import 'package:tosyo_card_pay/pages/settings.dart';
+import 'package:book_pay/pages/home.dart';
+import 'package:book_pay/pages/cards.dart';
+import 'package:book_pay/pages/settings.dart';
 
 class Pager extends StatefulWidget {
   const Pager({Key? key}) : super(key: key);
@@ -44,7 +44,7 @@ class _PagerState extends State<Pager> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('図書カードPay'),
+        title: const Text('ブックPay'),
       ),
       body: PageView(
         controller: _pageController,
@@ -53,14 +53,8 @@ class _PagerState extends State<Pager> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'ホーム'
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.payment),
-            label: 'カード一覧'
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'ホーム'),
+          BottomNavigationBarItem(icon: Icon(Icons.payment), label: 'カード一覧'),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),
             label: '設定',
@@ -71,7 +65,8 @@ class _PagerState extends State<Pager> {
           _selectedIndex = index;
 
           _pageController.animateToPage(index,
-              duration: const Duration(milliseconds: 300), curve: Curves.easeIn);
+              duration: const Duration(milliseconds: 300),
+              curve: Curves.easeIn);
         },
       ),
     );

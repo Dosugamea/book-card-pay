@@ -1,4 +1,4 @@
-package com.example.tosyo_card_pay
+package com.example.book_pay
 
 import io.flutter.embedding.android.FlutterActivity
 
