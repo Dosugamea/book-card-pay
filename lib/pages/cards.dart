@@ -40,13 +40,11 @@ class _CardsPageState extends State<CardsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        child: ListView.builder(
-          itemCount: _cardList.length,
-          itemBuilder: (BuildContext context, int index) {
-            return _cardList[index];
-          },
-        ),
+      body: ListView.builder(
+        itemCount: _cardList.length,
+        itemBuilder: (BuildContext context, int index) {
+          return _cardList[index];
+        },
       ),
     );
   }
