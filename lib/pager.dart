@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:book_pay/pages/pager/home.dart';
 import 'package:book_pay/pages/pager/cards.dart';
 import 'package:book_pay/pages/pager/settings.dart';
+import 'package:book_pay/pages/card.dart';
 
 class Pager extends StatefulWidget {
   const Pager({Key? key}) : super(key: key);
@@ -15,7 +16,7 @@ class _PagerState extends State<Pager> {
   late PageController _pageController;
 
   static final List<Widget> _pageList = [
-    const HomePage(),
+    CardPage(1, 'Home', 100, DateTime.now(), '111', '1111'),
     const CardsPage(),
     const SettingsPage(),
   ];
@@ -53,8 +54,14 @@ class _PagerState extends State<Pager> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'ホーム'),
-          BottomNavigationBarItem(icon: Icon(Icons.payment), label: 'カード一覧'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'ホーム',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.payment),
+            label: 'カード一覧',
+          ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),
             label: '設定',
@@ -64,9 +71,11 @@ class _PagerState extends State<Pager> {
         onTap: (index) {
           _selectedIndex = index;
 
-          _pageController.animateToPage(index,
-              duration: const Duration(milliseconds: 300),
-              curve: Curves.easeIn);
+          _pageController.animateToPage(
+            index,
+            duration: const Duration(milliseconds: 300),
+            curve: Curves.easeIn,
+          );
         },
       ),
     );
