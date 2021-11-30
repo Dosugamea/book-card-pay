@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:book_pay/pages/cards.dart';
+import 'package:book_pay/pages/pager/cards.dart';
 import 'package:book_pay/components/setting.dart';
 
 // カード一覧ページの定義

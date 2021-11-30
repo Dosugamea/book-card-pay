@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:book_pay/pages/home.dart';
-import 'package:book_pay/pages/cards.dart';
-import 'package:book_pay/pages/settings.dart';
+import 'package:book_pay/pages/pager/home.dart';
+import 'package:book_pay/pages/pager/cards.dart';
+import 'package:book_pay/pages/pager/settings.dart';
 
 class Pager extends StatefulWidget {
   const Pager({Key? key}) : super(key: key);
