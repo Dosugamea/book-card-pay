@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:book_pay/pages/pager/home.dart';
 import 'package:book_pay/pages/pager/cards.dart';
 import 'package:book_pay/pages/pager/settings.dart';
-import 'package:book_pay/pages/card.dart';
 
 class Pager extends StatefulWidget {
   const Pager({Key? key}) : super(key: key);
@@ -16,7 +15,7 @@ class _PagerState extends State<Pager> {
   late PageController _pageController;
 
   static final List<Widget> _pageList = [
-    CardPage(1, 'Home', 100, DateTime.now(), '111', '1111'),
+    const HomePage(),
     const CardsPage(),
     const SettingsPage(),
   ];

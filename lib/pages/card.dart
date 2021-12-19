@@ -20,6 +20,9 @@ class CardPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final _dateText = formatter.format(_expireDate);
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('カード情報'),
+      ),
       body: Center(
         child: Row(
           children: <Widget>[
