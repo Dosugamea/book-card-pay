@@ -16,8 +16,7 @@ class CardWidget extends StatelessWidget {
           ListTile(
             leading: Image.asset('assets/book_tosyo_card.png'),
             title: Text(card.title),
-            subtitle: Text('残高: ${card.balance}円\n'
-                '有効期限: ${card.expireDate}'),
+            subtitle: Text('残高: ${card.balance}円\n有効期限: ${card.expireDate}'),
             isThreeLine: true,
             onTap: () {
               Navigator.push(

@@ -1,11 +1,42 @@
 import 'package:flutter/material.dart';
 import 'package:book_pay/models/card.dart';
 
-// カード情報画面の定義
-class CardPage extends StatelessWidget {
+// カード情報ページの定義
+class CardPage extends StatefulWidget {
   final CardModel card;
 
   const CardPage(this.card, {Key? key}) : super(key: key);
+
+  // 親クラスから子クラスに渡された値は finalで定義する
+
+  @override
+  State<CardPage> createState() => _CardPageState();
+}
+
+// カード情報画面の定義
+class _CardPageState extends State<CardPage> {
+  bool _showPin = false;
+  String _id = '**** **** **** ****';
+  String _pin = '****';
+  String _label = 'カード情報を表示';
+
+  void __toggleShowState(CardPage widget) {
+    if (!_showPin) {
+      setState(() {
+        _id = widget.card.cardId;
+        _pin = widget.card.cardPin;
+        _label = 'カード情報を隠す';
+        _showPin = true;
+      });
+    } else {
+      setState(() {
+        _id = '**** **** **** ****';
+        _pin = '****';
+        _label = 'カード情報を表示';
+        _showPin = false;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,11 +56,11 @@ class CardPage extends StatelessWidget {
                   children: [
                     Image.asset('assets/book_tosyo_card.png'),
                     Text(
-                      '残高: ${card.balance} 円',
+                      '残高: ${widget.card.balance} 円',
                       style: Theme.of(context).textTheme.headline6,
                     ),
                     Text(
-                      '有効期限: ${card.expireDate}',
+                      '有効期限: ${widget.card.expireDate}',
                       style: Theme.of(context).textTheme.headline6,
                     ),
                     const SizedBox(height: 30),
@@ -49,23 +80,23 @@ class CardPage extends StatelessWidget {
                       child: Column(
                         children: [
                           Text(
-                            "ID: **** **** **** ****",
+                            "ID: $_id",
                             style: Theme.of(context).textTheme.headline6,
                           ),
                           const SizedBox(height: 5),
                           Text(
-                            "PIN: ****",
+                            "PIN: $_pin",
                             style: Theme.of(context).textTheme.headline6,
                           ),
                           const SizedBox(height: 5),
                           SizedBox(
                             height: 40,
                             child: ElevatedButton(
-                              onPressed: () {},
+                              onPressed: () => __toggleShowState(widget),
                               style: ElevatedButton.styleFrom(
                                 textStyle: const TextStyle(fontSize: 14),
                               ),
-                              child: const Text('カード情報を表示'),
+                              child: Text(_label),
                             ),
                           ),
                         ],
