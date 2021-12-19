@@ -12,6 +12,8 @@ class CardProvider with ChangeNotifier {
       expireDate: '2022/12/04',
       cardId: '12345678',
       cardPin: '1234',
+      uniqueId: '1',
+      uniqueId2: '2',
     ),
     CardModel(
       id: 2,
@@ -20,6 +22,8 @@ class CardProvider with ChangeNotifier {
       expireDate: '2022/12/04',
       cardId: '12345678',
       cardPin: '1234',
+      uniqueId: '1',
+      uniqueId2: '2',
     ),
     CardModel(
       id: 3,
@@ -28,6 +32,8 @@ class CardProvider with ChangeNotifier {
       expireDate: '2022/12/04',
       cardId: '12345678',
       cardPin: '1234',
+      uniqueId: '1',
+      uniqueId2: '2',
     ),
   ];
 

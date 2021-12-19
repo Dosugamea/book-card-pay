@@ -5,6 +5,8 @@ class CardModel {
   final String expireDate;
   final String cardId;
   final String cardPin;
+  final String uniqueId;
+  final String uniqueId2;
 
   CardModel({
     required this.id,
@@ -13,6 +15,8 @@ class CardModel {
     required this.expireDate,
     required this.cardId,
     required this.cardPin,
+    required this.uniqueId,
+    required this.uniqueId2,
   });
 
   /// Map型に変換
@@ -23,6 +27,8 @@ class CardModel {
         'expireDate': expireDate,
         'cardId': cardId,
         'cardPin': cardPin,
+        'uniqueId': uniqueId,
+        'uniqueId2': uniqueId2,
       };
 
   /// JSONオブジェクトを代入
@@ -32,5 +38,7 @@ class CardModel {
         balance = json['balance'],
         expireDate = json['expireDate'],
         cardId = json['cardId'],
-        cardPin = json['cardPin'];
+        cardPin = json['cardPin'],
+        uniqueId = json['uniqueId'],
+        uniqueId2 = json['uniqueId2'];
 }

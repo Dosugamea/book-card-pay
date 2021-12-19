@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:book_pay/models/card.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 // カード情報ページの定義
 class CardPage extends StatefulWidget {
   final CardModel card;
 
   const CardPage(this.card, {Key? key}) : super(key: key);
-
-  // 親クラスから子クラスに渡された値は finalで定義する
 
   @override
   State<CardPage> createState() => _CardPageState();
@@ -19,6 +18,21 @@ class _CardPageState extends State<CardPage> {
   String _id = '**** **** **** ****';
   String _pin = '****';
   String _label = 'カード情報を表示';
+
+  void _openCardView(CardPage widget) async {
+    var ua = widget.card.uniqueId;
+    var us = widget.card.uniqueId2;
+    var url = 'https://toshocard.jp/customer/tcn/netgift?ua=$ua&us=$us';
+    if (await canLaunch(url)) {
+      await launch(
+        url,
+        forceSafariVC: true,
+        forceWebView: true,
+      );
+    } else {
+      throw 'このURLにはアクセスできません';
+    }
+  }
 
   void __toggleShowState(CardPage widget) {
     if (!_showPin) {
@@ -67,7 +81,9 @@ class _CardPageState extends State<CardPage> {
                     SizedBox(
                       height: 60,
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          _openCardView(widget);
+                        },
                         style: ElevatedButton.styleFrom(
                           textStyle: const TextStyle(fontSize: 23),
                         ),
