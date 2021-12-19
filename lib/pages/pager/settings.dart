@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:book_pay/pages/pager/cards.dart';
+import 'package:book_pay/pages/settings/add.dart';
 import 'package:book_pay/widgets/setting.dart';
 
 // カード一覧ページの定義
@@ -17,7 +18,7 @@ class _SettingsPageState extends State<SettingsPage> {
 
   @override
   void initState() {
-    _settings.add(const Setting('カードの追加', Icons.add, CardsPage()));
+    _settings.add(const Setting('カードの追加', Icons.add, CardAddPage()));
     _settings.add(const Setting('カードの消去', Icons.remove, CardsPage()));
     _settings.add(const Setting('カードの残高更新', Icons.refresh, CardsPage()));
     _settings.add(const Setting('カードのエクスポート', Icons.share, CardsPage()));
