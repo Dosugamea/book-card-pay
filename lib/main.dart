@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
+import 'package:book_pay/providers/card.dart';
+import 'package:provider/provider.dart';
 import 'pager.dart';
 
 // エントリーポイント
@@ -15,12 +17,19 @@ class MyApp extends StatelessWidget {
   // アプリ直下
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'ブックPay',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return MultiProvider(
+      child: MaterialApp(
+        title: 'ブックPay',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: const Pager(),
       ),
-      home: const Pager(),
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => CardProvider(),
+        )
+      ],
     );
   }
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:book_pay/pages/pager/cards.dart';
-import 'package:book_pay/components/setting.dart';
+import 'package:book_pay/widgets/setting.dart';
 
 // カード一覧ページの定義
 class SettingsPage extends StatefulWidget {

@@ -1,24 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
+import 'package:book_pay/models/card.dart';
 
 // カード情報画面の定義
 class CardPage extends StatelessWidget {
-  final DateFormat formatter = DateFormat('yyyy/MM/dd', "ja_JP");
-  final int _id;
-  final String _title;
-  final int _balance;
-  final DateTime _expireDate;
-  final String _cardId;
-  final String _cardPin;
+  final CardModel card;
 
-  CardPage(this._id, this._title, this._balance, this._expireDate, this._cardId,
-      this._cardPin,
-      {Key? key})
-      : super(key: key);
+  const CardPage(this.card, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final _dateText = formatter.format(_expireDate);
     return Scaffold(
       appBar: AppBar(
         title: const Text('カード情報'),
@@ -35,11 +25,11 @@ class CardPage extends StatelessWidget {
                   children: [
                     Image.asset('assets/book_tosyo_card.png'),
                     Text(
-                      '残高: $_balance 円',
+                      '残高: ${card.balance} 円',
                       style: Theme.of(context).textTheme.headline6,
                     ),
                     Text(
-                      '有効期限: $_dateText',
+                      '有効期限: ${card.expireDate}',
                       style: Theme.of(context).textTheme.headline6,
                     ),
                     const SizedBox(height: 30),

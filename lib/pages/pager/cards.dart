@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:book_pay/components/card.dart';
+import 'package:book_pay/widgets/card.dart';
+import 'package:book_pay/providers/card.dart';
+import 'package:provider/provider.dart';
 
 // カード一覧ページの定義
 class CardsPage extends StatefulWidget {
@@ -12,40 +14,22 @@ class CardsPage extends StatefulWidget {
 }
 
 class _CardsPageState extends State<CardsPage> {
-  final List<TosyoCard> _cardList = [];
-
-  @override
-  void initState() {
-    _cardList.add(TosyoCard(
-      12345,
-      'Test',
-      1000,
-      DateTime.now(),
-    ));
-    _cardList.add(TosyoCard(
-      12345,
-      'Test2',
-      1000,
-      DateTime.now(),
-    ));
-    _cardList.add(TosyoCard(
-      12345,
-      'Test3',
-      1000,
-      DateTime.now(),
-    ));
-    super.initState();
+  Widget _renderListView(CardProvider model) {
+    final cardList = model.cards;
+    return ListView.builder(
+      itemCount: cardList.length,
+      itemBuilder: (BuildContext context, int index) {
+        return CardWidget(cardList[index]);
+      },
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView.builder(
-        itemCount: _cardList.length,
-        itemBuilder: (BuildContext context, int index) {
-          return _cardList[index];
-        },
-      ),
+      body: Consumer<CardProvider>(builder: (context, model, _) {
+        return _renderListView(model);
+      }),
     );
   }
 }
